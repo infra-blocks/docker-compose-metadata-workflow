@@ -1,30 +1,33 @@
-# github-actions-workflow-template
+# docker-compose-metadata-workflow
 
-This repository is a template for creating reusable GitHub Actions Workflows. Go through the below checklist
-upon instantiating this template:
-- Rename and replace the content of [the placeholder](.github/workflows/reusable-workflow.yml) for your reusable workflow.
-- Edit this section and the usage section and replace with a meaningful description of your workflow
+This reusable workflow parses out metadata from a docker compose file. The output is provided as a JSON
+object, so it can be mixed with GitHub Actions fromJSON expression function.
 
 ## Usage
 
 ```yaml
-name: Template Usage
+name: Docker Compose Metadata
 
 on:
   push: ~
 
-# This needs to be a superset of what your workflow requires
-permissions:
-  pull-requests: read
-
 jobs:
-  example-job:
-    uses: infrastructure-blocks/github-actions-workflow-template/.github/workflows/reusable-workflow.yml@v1
+  docker-compose-metadata:
+    permissions:
+      contents: read # Needed to check out the project.
+    uses: infrastructure-blocks/docker-compose-metadata-workflow/.github/workflows/docker-compose-metadata.yml@v1
     with:
-      example-input: Nobody cares
-    secrets:
-      example-secret: ${{ secrets.EXAMPLE }}
+      # Defaults to docker/docker-compose.yml
+      docker-compose-file: docker-compose.yaml
+  do-something-with-metadata:
+    runs-on: ubuntu-22.04
+    needs:
+      - docker-compose-metadata
+    steps:
+      - run: |
+          echo "The image of service toto is: ${{ fromJson(needs.docker-compose-metadata.outputs.metadata).services.toto.image }}"
 ```
+
 
 ### Releasing
 
