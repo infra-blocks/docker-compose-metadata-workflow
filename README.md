@@ -3,6 +3,32 @@
 This reusable workflow parses out metadata from a docker compose file. The output is provided as a JSON
 object, so it can be mixed with GitHub Actions fromJSON expression function.
 
+## Inputs
+
+|        Name         | Required | Description                                                                                            |
+|:-------------------:|:--------:|--------------------------------------------------------------------------------------------------------|
+| docker-compose-file |  false   | The path to the docker compose file, relative to the git root. Defaults to "docker/docker-compose.yml" | 
+
+## Secrets
+
+N/A
+
+## Outputs
+
+|   Name   | Description                                           |
+|:--------:|-------------------------------------------------------|
+| metadata | A stringified JSON object of the docker compose file. |
+
+## Permissions
+
+|  Scope   | Level | Reason                 |
+|:--------:|:-----:|------------------------|
+| contents | read  | To checkout your code. |
+
+## Concurrency controls
+
+N/A
+
 ## Usage
 
 ```yaml

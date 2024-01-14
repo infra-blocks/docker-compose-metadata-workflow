@@ -11,7 +11,7 @@ on:
         default: "docker/docker-compose.yml"
     outputs:
       metadata:
-        description: A JSON object of the docker compose file.
+        description: A stringified JSON object of the docker compose file.
         value: ${{ jobs.docker-compose-metadata.outputs.metadata }}
 
 permissions:
