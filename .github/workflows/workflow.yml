@@ -1,0 +1,33 @@
+name: Docker Compose Metadata
+
+on:
+  workflow_call:
+    inputs:
+      docker-compose-file:
+        type: string
+        description: |
+          The path to the docker compose file, relative to the git root. Defaults to "docker/docker-compose.yml"
+        required: false
+        default: "docker/docker-compose.yml"
+    outputs:
+      metadata:
+        description: A stringified JSON object of the docker compose file.
+        value: ${{ jobs.docker-compose-metadata.outputs.metadata }}
+
+permissions:
+  contents: read
+
+jobs:
+  docker-compose-metadata:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    outputs:
+      metadata: ${{ steps.metadata.outputs.metadata }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse docker-compose metadata
+        id: metadata
+        run: |
+          metadata="$(yq -o json -e '.' ${{ inputs.docker-compose-file }} | jq -c)"
+          echo "metadata=${metadata}" >> "${GITHUB_OUTPUT}"
