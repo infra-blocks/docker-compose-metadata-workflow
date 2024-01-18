@@ -29,6 +29,10 @@ N/A
 
 N/A
 
+## Timeouts
+
+N/A
+
 ## Usage
 
 ```yaml
@@ -41,7 +45,7 @@ jobs:
   docker-compose-metadata:
     permissions:
       contents: read # Needed to check out the project.
-    uses: infrastructure-blocks/docker-compose-metadata-workflow/.github/workflows/docker-compose-metadata.yml@v1
+    uses: infrastructure-blocks/docker-compose-metadata-workflow/.github/workflows/workflow.yml@v1
     with:
       # Defaults to docker/docker-compose.yml
       docker-compose-file: docker-compose.yaml
