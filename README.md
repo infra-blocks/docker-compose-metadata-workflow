@@ -7,9 +7,10 @@ object, so it can be mixed with GitHub Actions fromJSON expression function.
 
 ## Inputs
 
-|        Name         | Required | Description                                                                                            |
-|:-------------------:|:--------:|--------------------------------------------------------------------------------------------------------|
-| docker-compose-file |  false   | The path to the docker compose file, relative to the git root. Defaults to "docker/docker-compose.yml" | 
+|        Name         | Required | Description                                                                                                                                                                  |
+|:-------------------:|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| docker-compose-file |  false   | The path to the docker compose file, relative to the git root. Defaults to "docker/docker-compose.yml"                                                                       | 
+|        skip         |  false   | A boolean indicating whether to skip the workflow. This is to workaround the required checks discrepancy when the workflow is skipped from the caller. It defaults to false. |
 
 ## Secrets
 

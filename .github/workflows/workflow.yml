@@ -9,6 +9,11 @@ on:
           The path to the docker compose file, relative to the git root. Defaults to "docker/docker-compose.yml"
         required: false
         default: "docker/docker-compose.yml"
+      skip:
+        type: boolean
+        description: Whether to skip the workflow or not.
+        required: false
+        default: false
     outputs:
       metadata:
         description: A stringified JSON object of the docker compose file.
@@ -19,6 +24,7 @@ permissions:
 
 jobs:
   docker-compose-metadata:
+    if: ${{ !inputs.skip }}
     runs-on: ubuntu-22.04
     permissions:
       contents: read
