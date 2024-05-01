@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # docker-compose-metadata-workflow
 [![Git Tag Semver From Label](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/git-tag-semver-from-label.yml/badge.svg)](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/git-tag-semver-from-label.yml)
 [![Update From Template](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/update-from-template.yml/badge.svg)](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/update-from-template.yml)
+=======
+# github-actions-workflow-template
+[![Release](https://github.com/infrastructure-blocks/github-actions-workflow-template/actions/workflows/release.yml/badge.svg)](https://github.com/infrastructure-blocks/github-actions-workflow-template/actions/workflows/release.yml)
+[![Trigger Update From Template](https://github.com/infrastructure-blocks/github-actions-workflow-template/actions/workflows/trigger-update-from-template.yml/badge.svg)](https://github.com/infrastructure-blocks/github-actions-workflow-template/actions/workflows/trigger-update-from-template.yml)
+>>>>>>> template/master
 
 This reusable workflow parses out metadata from a docker compose file. The output is provided as a JSON
 object, so it can be mixed with GitHub Actions fromJSON expression function.
