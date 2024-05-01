@@ -23,17 +23,30 @@ permissions:
   contents: read
 
 jobs:
+<<<<<<< HEAD
   docker-compose-metadata:
     if: ${{ !inputs.skip }}
+=======
+  example-job:
+>>>>>>> template/master
     runs-on: ubuntu-22.04
     permissions:
       contents: read
     outputs:
       metadata: ${{ steps.metadata.outputs.metadata }}
     steps:
+<<<<<<< HEAD
       - uses: actions/checkout@v4
       - name: Parse docker-compose metadata
         id: metadata
+=======
+      # This condition should be on every step.
+      - if: ${{ !inputs.skip }}
+        id: example-step
+        name: Example step
+        env:
+          BIG_SECRET: ${{ secrets.example-secret }}
+>>>>>>> template/master
         run: |
           metadata="$(yq -o json -e '.' ${{ inputs.docker-compose-file }} | jq -c)"
           echo "metadata=${metadata}" >> "${GITHUB_OUTPUT}"
