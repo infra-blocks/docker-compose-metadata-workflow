@@ -1,5 +1,5 @@
 # docker-compose-metadata-workflow
-[![Git Tag Semver From Label](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/git-tag-semver-from-label.yml/badge.svg)](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/git-tag-semver-from-label.yml)
+[![Release](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/release.yml/badge.svg)](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/release.yml)
 [![Update From Template](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/update-from-template.yml/badge.svg)](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/update-from-template.yml)
 
 This reusable workflow parses out metadata from a docker compose file. The output is provided as a JSON
