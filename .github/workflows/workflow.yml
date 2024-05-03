@@ -24,15 +24,16 @@ permissions:
 
 jobs:
   docker-compose-metadata:
-    if: ${{ !inputs.skip }}
     runs-on: ubuntu-22.04
     permissions:
       contents: read
     outputs:
       metadata: ${{ steps.metadata.outputs.metadata }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Parse docker-compose metadata
+      - if: ${{ !inputs.skip }}
+        uses: actions/checkout@v4
+      - if: ${{ !inputs.skip }}
+        name: Parse docker-compose metadata
         id: metadata
         run: |
           metadata="$(yq -o json -e '.' ${{ inputs.docker-compose-file }} | jq -c)"
