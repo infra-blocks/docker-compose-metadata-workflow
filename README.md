@@ -1,6 +1,6 @@
 # docker-compose-metadata-workflow
-[![Release](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/release.yml/badge.svg)](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/release.yml)
-[![Update From Template](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/update-from-template.yml/badge.svg)](https://github.com/infrastructure-blocks/docker-compose-metadata-workflow/actions/workflows/update-from-template.yml)
+[![Release](https://github.com/infra-blocks/docker-compose-metadata-workflow/actions/workflows/release.yml/badge.svg)](https://github.com/infra-blocks/docker-compose-metadata-workflow/actions/workflows/release.yml)
+[![Update From Template](https://github.com/infra-blocks/docker-compose-metadata-workflow/actions/workflows/update-from-template.yml/badge.svg)](https://github.com/infra-blocks/docker-compose-metadata-workflow/actions/workflows/update-from-template.yml)
 
 This reusable workflow parses out metadata from a docker compose file. The output is provided as a JSON
 object, so it can be mixed with GitHub Actions fromJSON expression function.
@@ -48,7 +48,7 @@ jobs:
   docker-compose-metadata:
     permissions:
       contents: read # Needed to check out the project.
-    uses: infrastructure-blocks/docker-compose-metadata-workflow/.github/workflows/workflow.yml@v1
+    uses: infra-blocks/docker-compose-metadata-workflow/.github/workflows/workflow.yml@v1
     with:
       # Defaults to docker/docker-compose.yml
       docker-compose-file: docker-compose.yaml
@@ -65,4 +65,4 @@ jobs:
 ### Releasing
 
 The releasing is handled at git level with semantic versioning tags. Those are automatically generated and managed
-by the [git-tag-semver-from-label-workflow](https://github.com/infrastructure-blocks/git-tag-semver-from-label-workflow).
+by the [git-tag-semver-from-label-workflow](https://github.com/infra-blocks/git-tag-semver-from-label-workflow).
